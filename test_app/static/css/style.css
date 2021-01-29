@@ -1,0 +1,33 @@
+#carouselId{
+    max-height: 60vh;
+    overflow: hidden;
+}
+
+.bumper{
+    height: 1rem;
+    background-color: rgba(0,0,0);
+}
+
+.box{
+    height: 10rem;
+}
+
+.carousel-item img{
+    max-width: 100%
+}
+
+.card{
+    width: 25%
+}
+
+.cardLink:hover{
+    outline: none;
+    border-color: lightgrey;
+    box-shadow: 0 0 20px lightgrey;
+    text-decoration: none !important;
+}
+
+.nounderline {
+    text-decoration: none !important;
+    color: black
+}

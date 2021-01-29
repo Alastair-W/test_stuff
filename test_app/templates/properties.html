@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-start pl-5">
+        <div class="col-xs-1-12 m-3">
+            <h1>Add a Property</h1>
+                <form action='addProperty' method='POST' enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="address" class="col-sm-1-12 col-form-label">Address</label>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="postcode" class="col-sm-1-12 col-form-label">Postcode</label>
+                        <input type="text" class="form-control" name="postcode" id="postcode" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="town" class="col-sm-1-12 col-form-label">Town/City</label>
+                        <input type="text" class="form-control" name="town" id="town" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="pic">Upload a Photo of the Property</label>
+                        <input type="file" class="form-control-file" name="pic" id="pic" placeholder="" aria-describedby="fileHelpId">
+                        <small id="fileHelpId" class="form-text text-muted">less than 2mb</small>
+                    </div>
+                    <button class="btn btn-primary">Add</button>
+                </form>
+        </div>  
+        {% for p in allP %}
+        <div class="col-xs-1-12">
+            <a href="" class="nounderline">
+                <div class="card m-3 cardLink" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ p.pic.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4>{{ p.address }}</h4>
+                        <h5>{{ p.town }}</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
